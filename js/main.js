@@ -1,7 +1,7 @@
-let cantidad = parseInt(prompt('INGRESE CANTIDAD DE REPETICIONES'));
-let texto = prompt('INGRESE TEXTO A REPETIR');
-for (let index = 0; index < cantidad; index = index + 1) {
-console.log(texto);
+let numero = parseInt(prompt("Ingresa un número."))
+
+if (numero % 2 ===1){
+   alert("El número es impar") 
+}else {
+    alert("El número es par")
 }
-
-
