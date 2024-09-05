@@ -16,7 +16,7 @@ criptomonedas.forEach(function(crypto) {
 
 function actualizarDineroRestante() {
     let dineroElemento = document.getElementById("dinero-restante")
-     dineroElemento.textContent = `$${dineroRestante.toFixed(2)} USD`
+    dineroElemento.textContent = `$${dineroRestante.toFixed(2)} USD`
 }
 actualizarDineroRestante()
 
@@ -24,7 +24,7 @@ actualizarDineroRestante()
 criptomonedas.forEach(function(crypto, index) {
     let button = document.getElementById(crypto.buttonId)
     button.addEventListener("click", function() {
-        mostrarFormularioCompra(crypto)
+    mostrarFormularioCompra(crypto)
     })
 })
 
@@ -58,7 +58,7 @@ dineroRestante -= total
     actualizarDineroRestante()
     localStorage.setItem("dineroRestante", dineroRestante)
     crypto.cantidadComprada += cantidad
-     localStorage.setItem(crypto.nombre, crypto.cantidadComprada)
+    localStorage.setItem(crypto.nombre, crypto.cantidadComprada)
 
     mostrarMensaje(`Has comprado ${cantidad} ${crypto.nombre} por un total de $${total.toFixed(2)} USD. Dinero restante: $${dineroRestante.toFixed(2)} USD`, "alert-success")
 
