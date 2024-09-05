@@ -4,11 +4,11 @@ let dineroRestante = parseFloat(localStorage.getItem("dineroRestante")) || 10000
 
 let criptomonedas = [
     { nombre: "Bitcoin", id: "bitcoin-buy", buttonId: "button-bitcoin0", precio: 57872.36, cantidadComprada: 0 },
-{ nombre: "Ethereum", id: "ethereum-buy", buttonId: "button-bitcoin1", precio: 2446.17, cantidadComprada: 0 },
+    { nombre: "Ethereum", id: "ethereum-buy", buttonId: "button-bitcoin1", precio: 2446.17, cantidadComprada: 0 },
     { nombre: "Litecoin", id: "litecoin-buy", buttonId: "button-bitcoin2", precio: 64.78, cantidadComprada: 0 },
     { nombre: "Ripple", id: "ripple-buy", buttonId: "button-bitcoin3", precio: 0.56, cantidadComprada: 0 },
     { nombre: "Cardano", id: "cardano-buy", buttonId: "button-bitcoin4", precio: 0.32, cantidadComprada: 0 },
-     { nombre: "Dogecoin", id: "dogecoin-buy", buttonId: "button-bitcoin5", precio: 0.06, cantidadComprada: 0 }
+    { nombre: "Dogecoin", id: "dogecoin-buy", buttonId: "button-bitcoin5", precio: 0.06, cantidadComprada: 0 }
 ]
 criptomonedas.forEach(function(crypto) {
     crypto.cantidadComprada = parseFloat(localStorage.getItem(crypto.nombre)) || 0
@@ -23,20 +23,20 @@ actualizarDineroRestante()
 
 criptomonedas.forEach(function(crypto, index) {
     let button = document.getElementById(crypto.buttonId)
-     button.addEventListener("click", function() {
+    button.addEventListener("click", function() {
         mostrarFormularioCompra(crypto)
     })
 })
 
 function mostrarFormularioCompra(crypto) {
     let form = document.querySelector(".compra-form")
-     form.style.display = "block"
+    form.style.display = "block"
 
     let label = form.querySelector("label")
         label.textContent = `Cantidad a comprar de ${crypto.nombre}:`
 
     let input = form.querySelector("input")
-     input.value = ""
+    input.value = ""
     input.focus()
 
      let confirmarButton = form.querySelector("button")
@@ -57,7 +57,7 @@ function mostrarFormularioCompra(crypto) {
 dineroRestante -= total
     actualizarDineroRestante()
     localStorage.setItem("dineroRestante", dineroRestante)
-   crypto.cantidadComprada += cantidad
+    crypto.cantidadComprada += cantidad
      localStorage.setItem(crypto.nombre, crypto.cantidadComprada)
 
     mostrarMensaje(`Has comprado ${cantidad} ${crypto.nombre} por un total de $${total.toFixed(2)} USD. Dinero restante: $${dineroRestante.toFixed(2)} USD`, "alert-success")
@@ -80,7 +80,8 @@ document.addEventListener("DOMContentLoaded", function() {
     reiniciarBtn.addEventListener("click", function() {        reiniciarLocalStorage()
 })
 
-function reiniciarLocalStorage() {       localStorage.clear()
+function reiniciarLocalStorage() {       
+        localStorage.clear()
         location.reload()
     }
 })
