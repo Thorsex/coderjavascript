@@ -2,100 +2,83 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoMarket</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">CryptoMarket</a>
-            <button id="reiniciar-btn" class="btn btn-warning mt-3">Reiniciar Simulador</button>
-             <div class="ms-auto text-white">
-                Dinero restante: <span id="dinero-restante">$1000000.00 USD</span>
-            </div>
-        </div>
-    </nav>
-    <div class="compra-form" style="display: none;">
-         <label for="cantidad-bitcoin">Cantidad a comprar:</label>
-         <input type="number" id="cantidad-bitcoin" name="cantidad-bitcoin" min="1" class="form-control">
-        <button class="btn btn-success mt-2">Confirmar Compra</button>
-      </div>
-    <div id="mensajes" class="alert alert-info mt-3" role="alert" style="display: none;">
-    </div>
-    <div id="mensajes" class="alert alert-info mt-3" role="alert" style="display: none;">
-    </div>
-    <main class="container mt-5">
-        <h1 class="text-center mb-5">Mercado de Criptomonedas</h1>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="img/bitcoin.png" class="card-img-top" alt="Bitcoin">
+    <div class="container mt-5">
+        <h1 class="text-center">Convertir y Comprar Criptomonedas</h1>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Bitcoin</h5>
-                        <p id="bitcoin-buy" class="text-success">$57,872.36 USD</p>
-                        <button id="button-bitcoin0" class="btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="img/Ethereum-Logo.png" class="card-img-top" alt="Ethereum">
-                    <div class="card-body">
-                        <h5 class="card-title">Ethereum</h5>
-                        <p id="ethereum-buy" class="text-success">$2,446.17 USD</p>
-                        <button id="button-bitcoin1" class="btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="./img/Litecoin2011.webp" class="card-img-top" alt="Litecoin">
-                    <div class="card-body">
-                        <h5 class="card-title">Litecoin</h5>
-                        <p id="litecoin-buy" class="text-success">$64.78 USD</p>
-                        <button id="button-bitcoin2" class="btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="img/Ripple.png" class="card-img-top" alt="Ripple">
-                    <div class="card-body">
-                        <h5 class="card-title">Ripple</h5>
-                        <p id="ripple-buy" class="text-success">$0.56 USD</p>
-                        <button id="button-bitcoin3" class="btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="img/Cardano-Logo.png" class="card-img-top" alt="Cardano">
-                    <div class="card-body">
-                        <h5 class="card-title">Cardano</h5>
-                        <p id="cardano-buy" class="text-success">$0.32 USD</p>
-                        <button id="button-bitcoin4" class="btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="img/content_dogecoin-removebg-preview.png" class="card-img-top" alt="Dogecoin">
-                    <div class="card-body">
-                        <h5 class="card-title">Dogecoin</h5>
-                        <p id="dogecoin-buy" class="text-success">$0.06 USD</p>
-                        <button id="button-bitcoin5" class="btn btn-primary">Comprar</button>
+                        <form id="formularioConvertidor">
+                            <div class="mb-3">
+                                <label for="monedaOrigen" class="form-label">Moneda de Origen</label>
+                                <select id="monedaOrigen" class="form-select" required>
+                                    <option value="">Seleccione Moneda</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="monedaDestino" class="form-label">Moneda de Destino</label>
+                                <select id="monedaDestino" class="form-select" required>
+                                    <option value="">Seleccione Moneda</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cantidad" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" id="cantidad" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Convertir</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-    <footer class="bg-dark text-white text-center py-3 mt-5">
-        <small>2024 CryptoMarket - Todos los derechos reservados.</small>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/main.js"></script>
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Comprar Criptomoneda</h5>
+                        <form id="formularioCompra">
+                            <div class="mb-3">
+                                <label for="monedaCompra" class="form-label">Seleccione Moneda</label>
+                                <select id="monedaCompra" class="form-select" required>
+                                    <option value="">Seleccione Moneda</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cantidadCompra" class="form-label">Cantidad a Comprar</label>
+                                <input type="number" class="form-control" id="cantidadCompra" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cbu" class="form-label">CBU/Swift</label>
+                                <input type="text" class="form-control" id="cbu" required pattern="[0-9]{22}">
+                                <div class="form-text">Ingrese un número de CBU/Swift de 22 dígitos.</div>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">Comprar</button>
+                        </form>
+                        <div id="mensajeCompra" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="historial" class="mt-5">
+            <h2 class="text-center">Historial de Conversiones y Compras</h2>
+            <ul class="list-group" id="listaHistorial"></ul>
+        </div>
+
+        <div id="cuenta" class="mt-5">
+            <h2 class="text-center">Saldo de Cuenta</h2>
+            <ul class="list-group" id="saldoCuenta"></ul>
+        </div>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
-

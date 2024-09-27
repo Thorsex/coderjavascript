@@ -1,0 +1,16 @@
+{
+    "monedas": [
+        { "nombre": "Bitcoin", "codigo": "BTC" },
+        { "nombre": "Ethereum", "codigo": "ETH" },
+        { "nombre": "Ripple", "codigo": "XRP" },
+        { "nombre": "Litecoin", "codigo": "LTC" },
+        { "nombre": "Bitcoin Cash", "codigo": "BCH" }
+    ],
+    "tasas": {
+        "BTC": 50000,
+        "ETH": 4000,
+        "XRP": 1,
+        "LTC": 150,
+        "BCH": 500
+    }
+}
